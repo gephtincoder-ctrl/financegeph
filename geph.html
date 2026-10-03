@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>geph Smart Budget</title>
+<link rel="stylesheet" href="geph.css">
+</head>
+
+<body>
+<div class="app">
+
+<header>
+<h1>geph Smart Budget</h1>
+<button id="theme">🌙</button>
+</header>
+
+<section class="dashboard">
+<div class="card"><h3>Budget total</h3><h1 id="totalBudget">0 FC</h1></div>
+<div class="card"><h3>Dépensé</h3><h1 id="totalSpent">0 FC</h1></div>
+<div class="card"><h3>Restant</h3><h1 id="totalLeft">0 FC</h1></div>
+</section>
+
+<div class="tabs">
+<button class="active" data-tab="tab-budget">Budget</button>
+<button data-tab="tab-goals">Épargne</button>
+<button data-tab="tab-debts">Dettes</button>
+<button data-tab="tab-convert">Convertisseur</button>
+</div>
+
+<!-- ONGLET BUDGET -->
+<section class="box tab show" id="tab-budget">
+<h2>Catégories de budget</h2>
+<input id="catName" type="text" placeholder="Catégorie (ex : Nourriture)">
+<input id="catLimit" type="number" placeholder="Budget maximum">
+<button onclick="addCategory()">Ajouter la catégorie</button>
+
+<h2 style="margin-top:30px">Nouvelle dépense</h2>
+<select id="expCat"></select>
+<input id="expAmount" type="number" placeholder="Montant dépensé">
+<button onclick="addExpense()">Ajouter la dépense</button>
+
+<div id="catList"></div>
+</section>
+
+<!-- ONGLET ÉPARGNE -->
+<section class="box tab" id="tab-goals">
+<h2>Objectifs d'épargne</h2>
+<input id="goalName" type="text" placeholder="Objectif (ex : Téléphone)">
+<input id="goalTarget" type="number" placeholder="Montant à atteindre">
+<button onclick="addGoal()">Créer l'objectif</button>
+<div id="goalList"></div>
+</section>
+
+<!-- ONGLET DETTES -->
+<section class="box tab" id="tab-debts">
+<h2>Dettes et prêts</h2>
+<input id="debtName" type="text" placeholder="Nom de la personne">
+<input id="debtAmount" type="number" placeholder="Montant">
+<select id="debtType">
+<option value="owe">Je dois</option>
+<option value="owed">On me doit</option>
+</select>
+<button onclick="addDebt()">Ajouter</button>
+<p style="margin-top:15px">Je dois : <b id="totalOwe">0 FC</b> | On me doit : <b id="totalOwed">0 FC</b></p>
+<div id="debtList"></div>
+</section>
+
+<!-- ONGLET CONVERTISSEUR -->
+<section class="box tab" id="tab-convert">
+<h2>Convertisseur FC ↔ USD</h2>
+<input id="convRate" type="number" placeholder="Taux (1 USD = ? FC)">
+<input id="convAmount" type="number" placeholder="Montant">
+<select id="convType">
+<option value="fcToUsd">FC → USD</option>
+<option value="usdToFc">USD → FC</option>
+</select>
+<button onclick="convert()">Convertir</button>
+<p id="convResult"></p>
+</section>
+
+</div>
+
+<script src="geph.js">
+// Écris ton JavaScript ici
+</script>
+</body>
+</html>
